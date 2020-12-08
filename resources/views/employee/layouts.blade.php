@@ -3,11 +3,19 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title>Laravel</title>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/app.js') }}"></script>
     </head>
     <body>
-    <h1>Hello World</h1>
+        <div class="header_nav">
+            @include('employee.header')
+        </div>
+        <div class="main">
+            @yield('content')
+        </div>
+        <div class="footer">
+            @include('employee.footer')
+        </div>
     </body>
-    
 </html>
