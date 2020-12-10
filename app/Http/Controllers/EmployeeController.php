@@ -8,7 +8,23 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     public function index(){
-        return view('employee.index');
+        $employees =Employee::all();
+        return view('employee.index',['employees'=>$employees]);
+    }
+    /**
+     * 指定ユーザーの社員情報を表示する
+     *
+     * @param  int  $id
+     * @return \Illuminate\View\View
+     */
+
+    public function detail(Request $request,$id){
+        $employee =Employee::find($id);
+        if(is_null($id)){
+            $request->session()->flash('err_msg', 'データがありません');
+            return redirect(route('index'));
+        }
+        return view('employee.detail',['employee'=>$employee]);
     }
 
     public function create(){
