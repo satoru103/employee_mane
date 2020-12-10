@@ -26,6 +26,11 @@ class EmployeeController extends Controller
         }
         return view('employee.detail',['employee'=>$employee]);
     }
+    /**
+     * 指定ユーザーの社員情報を登録する
+     *
+     * @return \Illuminate\View\View
+     */
 
     public function create(){
         return view('employee.form');

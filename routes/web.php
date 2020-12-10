@@ -17,8 +17,8 @@ use App\Http\Controllers\EmployeeController;
 
 Route::get('/',[EmployeeController::class,'index'])->name('index');
 Route::get('/employee/{id}',[EmployeeController::class,'detail'])->name('detail');
-Route::get('/create',[EmployeeController::class,'create'])->name('ShowCreate');
-Route::post('/create',[EmployeeController::class,'store'])->name('store');
+Route::get('/employee/create',[EmployeeController::class,'create'])->name('create');
+Route::post('/employee/store',[EmployeeController::class,'store'])->name('store');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
