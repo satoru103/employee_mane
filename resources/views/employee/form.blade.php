@@ -1,3 +1,5 @@
+@extends('employee.layouts')
+
 @section('content')
 <form method="POST" action="{{route('store')}}">
     @csrf
@@ -16,7 +18,7 @@
     </div>
   <button type="submit" class="btn btn-primary">追加する</button>
 </form>
-<a class="btn btn-secondary" href="{{route(index)}}">戻る</a>
+<a class="btn btn-secondary" href="{{route('index')}}">戻る</a>
 @endsection
 
 

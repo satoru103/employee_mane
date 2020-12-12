@@ -36,7 +36,10 @@ class EmployeeController extends Controller
         return view('employee.form');
     }
 
-    public function store(){
-        
+    public function store(Request $request){
+        $inputs=$request->all();
+        Employee::create($inputs);
+        $request->session()->flash('err_msg', 'データを登録しました');
+        return redirect(route('index'));
     }
 }
