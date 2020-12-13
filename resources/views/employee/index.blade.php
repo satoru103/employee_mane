@@ -19,7 +19,10 @@
             <td>{{$employee->Department}}</td>
             <td>{{$employee->email}}</td>
             <td><button type="button" class="btn btn-primary"><a href="/employee/{{$employee->id}}">更新</a></button></td>
-            <td><button type="button" class="btn btn-secondary">削除</button></td>
+            <form method="POST" action="{{route('destroy',$employee->id)}}">
+                @csrf
+                <td><button type="submit" class="btn btn-secondary">削除</button></td>
+            </form>
         </tr>
         @endforeach
     </table>

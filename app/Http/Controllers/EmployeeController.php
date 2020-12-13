@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Requests\EmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -29,6 +30,7 @@ class EmployeeController extends Controller
     /**
      * 指定ユーザーの社員情報を登録する
      *
+     * @param  Request  $request
      * @return \Illuminate\View\View
      */
 
@@ -36,10 +38,27 @@ class EmployeeController extends Controller
         return view('employee.form');
     }
 
-    public function store(Request $request){
+    public function store(EmployeeRequest $request){
         $inputs=$request->all();
         Employee::create($inputs);
         $request->session()->flash('err_msg', 'データを登録しました');
         return redirect(route('index'));
+    }
+
+    /**
+     * 指定ユーザーの社員情報を削除する
+     *
+     * @param  int  $id
+     * @param  Request  $request
+     * @return \Illuminate\View\View
+     */
+
+    public function destroy(Request $request,$id){
+        if(empty($id)){
+            $request->session()->flash('err_msg', 'データがありません');
+            return redirect(route('index'));
+        }
+        Employee::destroy($id);
+        
     }
 }

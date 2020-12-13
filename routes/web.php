@@ -19,6 +19,9 @@ Route::get('/',[EmployeeController::class,'index'])->name('index');
 Route::get('/employee/{id}',[EmployeeController::class,'detail'])->name('detail');
 Route::get('/employee/create',[EmployeeController::class,'create'])->name('create');
 Route::post('/employee/store',[EmployeeController::class,'store'])->name('store');
+Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy'])->name('destroy');
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
