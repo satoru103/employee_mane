@@ -54,11 +54,7 @@ class EmployeeController extends Controller
      */
 
     public function destroy(Request $request,$id){
-        if(empty($id)){
-            $request->session()->flash('err_msg', 'データがありません');
-            return redirect(route('index'));
-        }
         Employee::destroy($id);
-        
+        return redirect(route('index'));
     }
 }
