@@ -45,6 +45,30 @@ class EmployeeController extends Controller
         return redirect(route('index'));
     }
 
+
+     /**
+     * 指定ユーザーの編集画面を表示させる
+     *
+     * @param  int  $id
+     * @param  Request  $request
+     * @return \Illuminate\View\View
+     */
+
+    public function edit(Request $request,$id){
+        $employee =Employee::find($id);
+        if(is_null($id)){
+            $request->session()->flash('err_msg', 'データがありません');
+            return redirect(route('index'));
+        }
+        return view('employee.edit',['employee'=>$employee]);
+    }
+
+    public function update(Request $request,$id){
+        $inputs=$request->all();
+        Employee::update($inputs);
+        return redirect(route('index'));
+    }
+
     /**
      * 指定ユーザーの社員情報を削除する
      *
