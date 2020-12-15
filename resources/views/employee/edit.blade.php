@@ -3,6 +3,7 @@
 @section('content')
 <form method="POST" action="{{route('update')}}">
     @csrf
+    <input type="hidden" name="id" value="{{$employee->id}}">
     <div class="form-group">
         <label for="exampleInputName">name</label>
         <input type="name" class="form-control" id="exampleInputName" placeholder="名前" value="{{$employee->name}}">

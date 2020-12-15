@@ -12,22 +12,8 @@ class EmployeeController extends Controller
         $employees =Employee::all();
         return view('employee.index',['employees'=>$employees]);
     }
-    /**
-     * 指定ユーザーの社員情報を表示する
-     *
-     * @param  int  $id
-     * @return \Illuminate\View\View
-     */
 
-    public function detail(Request $request,$id){
-        $employee =Employee::find($id);
-        if(is_null($id)){
-            $request->session()->flash('err_msg', 'データがありません');
-            return redirect(route('index'));
-        }
-        return view('employee.detail',['employee'=>$employee]);
-    }
-    /**
+     /**
      * 指定ユーザーの社員情報を登録する
      *
      * @param  Request  $request
@@ -44,7 +30,21 @@ class EmployeeController extends Controller
         $request->session()->flash('err_msg', 'データを登録しました');
         return redirect(route('index'));
     }
+    /**
+     * 指定ユーザーの社員情報を表示する
+     *
+     * @param  int  $id
+     * @return \Illuminate\View\View
+     */
 
+    public function detail(Request $request,$id){
+        $employee =Employee::find($id);
+        if(is_null($id)){
+            $request->session()->flash('err_msg', 'データがありません');
+            return redirect(route('index'));
+        }
+        return view('employee.detail',['employee'=>$employee]);
+    }
 
      /**
      * 指定ユーザーの編集画面を表示させる
@@ -63,9 +63,10 @@ class EmployeeController extends Controller
         return view('employee.edit',['employee'=>$employee]);
     }
 
-    public function update(Request $request,$id){
+    public function update(EmployeeRequest $request){
         $inputs=$request->all();
-        Employee::update($inputs);
+        Employee::find($inputs['id']);
+        $request->session()->flash('err_msg', 'データを登録しました');
         return redirect(route('index'));
     }
 
