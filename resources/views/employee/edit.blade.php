@@ -3,18 +3,18 @@
 @section('content')
 <form method="POST" action="{{route('update')}}">
     @csrf
-    <input type="hidden" name="id" value="{{$employee->id}}">
+    <input type="hidden" name="id" id="id" value="{{$employee->id}}">
     <div class="form-group">
-        <label for="exampleInputName">name</label>
-        <input type="name" class="form-control" id="exampleInputName" placeholder="名前" value="{{$employee->name}}">
+        <label for="name">名前</label>
+        <input type="text" class="form-control" name="name" id="name" value="{{$employee->name}}">
     </div>
     <div class="form-group">
-        <label for="exampleInputDepartment">Department</label>
-        <input type="name" class="form-control" id="exampleInputName" placeholder="部署" value="{{$employee->Department}}">
+        <label for="Department">部署</label>
+        <input type="text" class="form-control" name="Department" id="Department" placeholder="部署" value="{{$employee->Department}}">
     </div>
     <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{$employee->email}}">
+        <label for="email">メールアドレス</label>
+        <input type="text" class="form-control" name="email" id="email" value="{{$employee->email}}">
     </div>
   <button type="submit" class="btn btn-primary">変更する</button>
 </form>
