@@ -28,3 +28,7 @@ Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy'])->name
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

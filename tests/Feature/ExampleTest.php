@@ -1,4 +1,4 @@
-<?php
+php artisan config:cache<?php
 
 namespace Tests\Feature;
 
