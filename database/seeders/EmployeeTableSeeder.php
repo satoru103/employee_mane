@@ -15,6 +15,6 @@ class EmployeeTableSeeder extends Seeder
      */
     public function run()
     {
-        
+        Factory(Employee::class,15)->create();
     }
 }

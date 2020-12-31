@@ -29,7 +29,8 @@ class EmployeeController extends Controller
         $inputs=$request->all();
         Employee::create($inputs);
         $request->session()->flash('err_msg', 'データを登録しました');
-        return redirect(route('index'));
+        
+        return redirect()->route('index');
     }
     /**
      * 指定ユーザーの社員情報を表示する

@@ -4,15 +4,15 @@
 <form method="POST" action="{{route('store')}}">
     @csrf
     <div class="form-group">
-        <label for="name">name</label>
+        <label for="name">名前</label>
         <input type="name" class="form-control" name="name "id="name" placeholder="名前">
     </div>
     <div class="form-group">
-        <label for="Department">Department</label>
+        <label for="Department">部署</label>
         <input type="name" class="form-control" name="Department "id="Department" placeholder="部署">
     </div>
     <div class="form-group">
-        <label for="email">Email address</label>
+        <label for="email">Eメールアドレス</label>
         <input type="email" class="form-control" name="email "id="email" aria-describedby="emailHelp" placeholder="Enter email">
     </div>
   <button type="submit" class="btn btn-primary">追加する</button>

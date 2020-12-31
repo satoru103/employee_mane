@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Employee;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class EmployeeFactory extends Factory
@@ -13,6 +14,7 @@ class EmployeeFactory extends Factory
      * @var string
      */
     protected $model = Employee::class;
+    protected $user = User::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +24,11 @@ class EmployeeFactory extends Factory
     public function definition()
     {
         return [
+
             'name'=>$this->faker->name,
             'Department' =>$this->faker->jobTitle,
-            'email' => $this->faker->unique()->safeEmail
+            'email' => $this->faker->unique()->safeEmail,
+            'user_id' => User::factory(),
         ];
     }
 }
