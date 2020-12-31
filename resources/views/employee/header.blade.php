@@ -13,7 +13,7 @@
         <a class="nav-link" href="{{route('create')}}">社員追加</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
+        <a class="nav-link" href="{{route('logout')}}">ログアウト</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

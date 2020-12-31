@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
@@ -29,6 +30,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/employee/edit/{id}',[EmployeeController::class,'edit'])->name('edit');
     Route::post('/employee/update',[EmployeeController::class,'update'])->name('update');
     Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy'])->name('destroy');
+
+    Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 });
 
 Auth::routes();
