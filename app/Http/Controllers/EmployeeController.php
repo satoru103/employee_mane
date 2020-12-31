@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
