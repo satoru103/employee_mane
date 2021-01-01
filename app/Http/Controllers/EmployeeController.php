@@ -26,8 +26,13 @@ class EmployeeController extends Controller
     }
 
     public function store(EmployeeRequest $request){
-        $inputs=$request->all();
-        Employee::create($inputs);
+        Employee::create([
+            'user_id' => Auth::id(),
+            'name' =>$request->name,
+            'Department'=>$request->Department,
+            'email' =>$request->email
+        ]);
+        
         $request->session()->flash('err_msg', 'データを登録しました');
         
         return redirect()->route('index');
