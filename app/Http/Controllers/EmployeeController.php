@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -25,10 +26,16 @@ class EmployeeController extends Controller
     }
 
     public function store(EmployeeRequest $request){
-        $inputs=$request->all();
-        Employee::create($inputs);
+        Employee::create([
+            'user_id' => Auth::id(),
+            'name' =>$request->name,
+            'Department'=>$request->Department,
+            'email' =>$request->email
+        ]);
+        
         $request->session()->flash('err_msg', 'データを登録しました');
-        return redirect(route('index'));
+        
+        return redirect()->route('index');
     }
     /**
      * 指定ユーザーの社員情報を表示する
@@ -64,10 +71,15 @@ class EmployeeController extends Controller
     }
 
     public function update(EmployeeRequest $request){
-        $inputs=$request->all();
-        Employee::find($inputs['id']);
+        
+        $employee=Employee::find($request->id);
+        $employee->name =$request->name;
+        $employee->Department =$request->Department;
+        $employee->email =$request->email;
+        $employee->save();
+
         $request->session()->flash('err_msg', 'データを登録しました');
-        return redirect(route('index'));
+        return redirect()->route('index');
     }
 
     /**

@@ -17,7 +17,7 @@ use App\Http\Controllers\EmployeeController;
 */
 
 
-
+Auth::routes();
 
 Route::get('/user', [RegisterController::class,'showRegistrationForm'])->name('user.register');
 Route::post('/user/register',[RegisterController::class,'register'])->name('user.exec.register');
@@ -34,4 +34,4 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 });
 
-Auth::routes();
+
