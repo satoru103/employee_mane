@@ -71,10 +71,15 @@ class EmployeeController extends Controller
     }
 
     public function update(EmployeeRequest $request){
-        $inputs=$request->all();
-        Employee::find($inputs['id']);
+        
+        $employee=Employee::find($request->id);
+        $employee->name =$request->name;
+        $employee->Department =$request->Department;
+        $employee->email =$request->email;
+        $employee->save();
+
         $request->session()->flash('err_msg', 'データを登録しました');
-        return redirect(route('index'));
+        return redirect()->route('index');
     }
 
     /**

@@ -26,7 +26,7 @@ class EmployeeRequest extends FormRequest
         return [
             'name'=>'required',
             'Department'=>'required',
-            'email'=>'required|unique:employees'
+            'email'=>'required|unique:employees',
         ];
     }
 }

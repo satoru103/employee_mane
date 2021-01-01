@@ -1,13 +1,14 @@
 @extends('employee.layouts')
 
 @section('content')
+<div class="container">
 <form method="POST" action="{{route('update')}}">
     @csrf
     <input type="hidden" name="id" id="id" value="{{$employee->id}}">
-    <input type="hidden" name="id" id="user_id" value="{{$employee->user_id}}">
+    <input type="hidden" name="user_id" id="user_id" value="{{$employee->user_id}}">
     <div class="form-group">
         <label for="name">名前</label>
-        <input type="text" class="form-control" name="name" id="name" value="{{$employee->name}}">
+        <input type="text" class="form-control" name="name" value="{{$employee->name}}">
     </div>
     <div class="form-group">
         <label for="Department">部署</label>
@@ -17,9 +18,11 @@
         <label for="email">メールアドレス</label>
         <input type="text" class="form-control" name="email" id="email" value="{{$employee->email}}">
     </div>
-  <button type="submit" class="btn btn-primary">変更する</button>
+  <button type="submit" class="btn btn-primary">更新</button>
+  <a class="btn btn-secondary" href="{{route('index')}}">戻る</a>
 </form>
-<a class="btn btn-secondary" href="{{route('index')}}">戻る</a>
+</div>
+
 @endsection
 
 
