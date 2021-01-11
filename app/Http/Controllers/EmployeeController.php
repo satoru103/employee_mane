@@ -70,7 +70,7 @@ class EmployeeController extends Controller
         return view('employee.edit',['employee'=>$employee]);
     }
 
-    public function update(EmployeeRequest $request){
+    public function update(Request $request){
         
         $employee=Employee::find($request->id);
         $employee->name =$request->name;
