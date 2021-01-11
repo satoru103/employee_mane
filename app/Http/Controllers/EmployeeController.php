@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
-    public function index(){
-        $employees =Employee::all();
+    public function index(Request $request){
+        if($request->get('keyword')){
+            $employees =Employee::where('name','like','%'.$request->get.'%')
+            ->get();
+        }else{
+            $employees =Employee::all();
+        }
         return view('employee.index',['employees'=>$employees]);
     }
 
