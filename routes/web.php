@@ -29,6 +29,7 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/employee/{id}',[EmployeeController::class,'detail'])->name('detail');
     Route::get('/employee/edit/{id}',[EmployeeController::class,'edit'])->name('edit');
     Route::post('/employee/update',[EmployeeController::class,'update'])->name('update');
+    Route::get('/employee/{id}/show',[EmployeeController::class,'show'])->name('show');
     Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy'])->name('destroy');
 
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
