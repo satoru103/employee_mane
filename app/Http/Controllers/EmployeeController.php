@@ -44,7 +44,7 @@ class EmployeeController extends Controller
      * @return \Illuminate\View\View
      */
 
-    public function detail(Request $request,$id){
+    public function show(Request $request,$id){
         $employee =Employee::find($id);
         if(is_null($id)){
             $request->session()->flash('err_msg', 'データがありません');

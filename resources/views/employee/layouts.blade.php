@@ -10,13 +10,13 @@
     </head>
     <body>
         <div class="header_nav">
-            @include('employee.header')
+            @yield('employee.header')
         </div>
         <div class="main">
             @yield('content')
         </div>
         <div class="footer">
-            @include('employee.footer')
+            @yield('employee.footer')
         </div>
     </body>
 </html>

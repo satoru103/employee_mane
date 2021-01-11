@@ -1,4 +1,6 @@
 @extends('employee.layouts')
+@include('employee.header')
+@include('employee.footer')
 
 @section('content')
 <div class="container">
