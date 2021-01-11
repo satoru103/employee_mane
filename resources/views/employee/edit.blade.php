@@ -12,7 +12,13 @@
     </div>
     <div class="form-group">
         <label for="Department">部署</label>
-        <input type="text" class="form-control" name="Department" id="Department" placeholder="部署" value="{{$employee->Department}}">
+        <select class="form-control" name="Department" placeholder="部署" value="{{old('Department',$employee->Department)}}">
+        @foreach(Config::get('department') as $department)
+            <option>
+                {{$department}}
+            </option>
+        @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="email">メールアドレス</label>
