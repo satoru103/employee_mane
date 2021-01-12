@@ -11,7 +11,7 @@ class EmployeeController extends Controller
 {
     public function index(Request $request){
         if($request->get('keyword')){
-            $employees =Employee::where('name','like','%'.$request->get.'%')
+            $employees =Employee::where('name','like','%'.$request->get('keyword').'%')
             ->get();
         }else{
             $employees =Employee::all();
