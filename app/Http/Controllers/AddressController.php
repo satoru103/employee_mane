@@ -1,14 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Address;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class AddressController extends Controller
 {
-    public function create(){
-        return view('address.create');
+    public function create($id){
+        $employee =Employee::find($id);
+        return view('address.create',['employee'=>$employee]);
+    }
+
+    public function update(Request $request){
+        $address=Address::find($request->id);
+        $address->postcode=$request->postcode;
+
+        $address->save();
+        return view('detail');
     }
 
 

@@ -34,8 +34,8 @@ Route::group(['middleware'=>['auth']],function(){
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
 
 
-    Route::get('/address/create',[AddressController::class,'create'])->name('address.create');
-    Route::post('/address/request',[AddressController::class,'request'])->name('address.request');
+    Route::get('/address/{id}/create',[AddressController::class,'create'])->name('address.create');
+    Route::post('/address/request',[AddressController::class,'update'])->name('address.update');
     
 });
 

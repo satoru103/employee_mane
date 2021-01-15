@@ -6,6 +6,7 @@
 <div class="container">
 <form method="POST" action="{{route('store')}}">
     @csrf
+    <input type="hidden" name="address_id" id="address_id">
     <div class="form-group">
         <label for="name">名前</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="名前">

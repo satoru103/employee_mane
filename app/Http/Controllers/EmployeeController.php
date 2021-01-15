@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,7 @@ class EmployeeController extends Controller
         Employee::create([
             'user_id' => Auth::id(),
             'name' =>$request->name,
+            'address_id'=>$request->address_id,
             'Department'=>$request->Department,
             'email' =>$request->email
         ]);
