@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -15,8 +16,6 @@ use App\Http\Controllers\EmployeeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Auth::routes();
 
 Route::get('/user', [RegisterController::class,'showRegistrationForm'])->name('user.register');
@@ -33,6 +32,11 @@ Route::group(['middleware'=>['auth']],function(){
     Route::post('/employee/delete/{id}',[EmployeeController::class,'destroy'])->name('destroy');
 
     Route::get('/logout',[LoginController::class,'logout'])->name('logout');
+
+
+    Route::get('/address/create',[AddressController::class,'create'])->name('address.create');
+    Route::post('/address/request',[AddressController::class,'request'])->name('address.request');
+    
 });
 
 

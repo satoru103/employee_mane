@@ -13,7 +13,8 @@
             <td>{{optional($employee)->name}}</td>
             <td>{{optional($employee)->Department}}</td>
             <td>{{optional($employee)->email}}</td>
-            <td><button type="button" class="btn btn-primary"><a href="{{route('edit',['id'=>$employee->id])}}">更新</a></button></td>
+            <td><a href="{{route('edit',['id'=>$employee->id])}}"><button type="button" class="btn btn-primary">変更</button></a></td>
+            <td><a href="{{route('address.create')}}"><button type="button" class="btn btn-info">住所登録</button></a></td>
             <form method="POST" action="{{route('destroy',$employee->id)}}">
                 @csrf
                 <td><button type="submit" class="btn btn-secondary">削除</button></td>
