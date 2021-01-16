@@ -27,6 +27,7 @@ class EmployeeRequest extends FormRequest
             'name'=>'required',
             'Department'=>'required',
             'email'=>'required|unique:employees',
+            'address_id'=>'nullable',
         ];
     }
 }

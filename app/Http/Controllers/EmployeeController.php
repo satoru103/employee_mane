@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use App\Models\Address;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +36,11 @@ class EmployeeController extends Controller
             'user_id' => Auth::id(),
             'name' =>$request->name,
             'Department'=>$request->Department,
-            'email' =>$request->email
+            'email' =>$request->email,
+            'postcode' =>$request->postcode,
+            'pref' =>$request->pref,
+            'address1' =>$request->address1,
+            'address2' =>$request->address2,
         ]);
         
         $request->session()->flash('err_msg', 'データを登録しました');

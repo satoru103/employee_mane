@@ -19,6 +19,10 @@ class CreateEmployeesTable extends Migration
             $table->string('name');
             $table->string('Department');
             $table->string('email');
+            $table->integer('postcode')->nullable();
+            $table->string('pref')->nullable();
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
             $table->timestamps();
         });
     }
