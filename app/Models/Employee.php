@@ -13,8 +13,12 @@ class Employee extends Model
     protected $fillable =[
         'name',
         'user_id',
-        'employee_id',
+        'address_id',
         'Department',
-        'email'
+        'email',
+        'postcode',
+        'pref',
+        'address1',
+        'address2'
     ];
 }

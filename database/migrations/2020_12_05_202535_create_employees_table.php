@@ -16,10 +16,13 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id');
-            $table->bigInteger('address_id');
             $table->string('name');
             $table->string('Department');
             $table->string('email');
+            $table->integer('postcode')->nullable();
+            $table->string('pref')->nullable();
+            $table->string('address1')->nullable();
+            $table->string('address2')->nullable();
             $table->timestamps();
         });
     }

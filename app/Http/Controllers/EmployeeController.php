@@ -35,9 +35,12 @@ class EmployeeController extends Controller
         Employee::create([
             'user_id' => Auth::id(),
             'name' =>$request->name,
-            'address_id'=>$request->address_id,
             'Department'=>$request->Department,
-            'email' =>$request->email
+            'email' =>$request->email,
+            'postcode' =>$request->postcode,
+            'pref' =>$request->pref,
+            'address1' =>$request->address1,
+            'address2' =>$request->address2,
         ]);
         
         $request->session()->flash('err_msg', 'データを登録しました');
