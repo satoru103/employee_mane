@@ -26,6 +26,28 @@
         <label for="email">メールアドレス</label>
         <input type="text" class="form-control" name="email" id="email" value="{{$employee->email}}">
     </div>
+    <div class="form-group">
+            <label for="postcode">郵便番号</label>
+            <input id="postcode" type="text" class="form-control" name="postcode" value="{{$employee->postcode}}">
+        </div>
+        <div class="form-group">
+            <label for="pref">都道府県</label>
+            <select name="pref" class="form-control">
+            @foreach(Config::get('pref') as $pref)
+                <option>
+                {{$pref}}
+                </option>
+            @endforeach    
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="address1">区市町村</label>
+            <input id="address1" type="text" class="form-control" name="address1" value="{{$employee->address1}}">
+        </div>
+        <div class="form-group">
+            <label for="address2">マンション名</label>
+            <input id="address2" type="text" class="form-control" name="address2" value="{{$employee->address1}}">
+        </div>
   <button type="submit" class="btn btn-primary">更新</button>
   <a class="btn btn-secondary" href="{{route('index')}}">戻る</a>
 </form>
