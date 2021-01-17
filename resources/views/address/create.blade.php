@@ -3,7 +3,7 @@
 @section('content')
 <form action="{{route('address.update')}}" method="post">
 @csrf
-<input type="hidden" name="address_id">
+
 <div class="container">
         <div class="form-group">
             <label for="postcode">郵便番号</label>
