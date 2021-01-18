@@ -46,7 +46,7 @@
         </div>
         <div class="form-group">
             <label for="address2">マンション名</label>
-            <input id="address2" type="text" class="form-control" name="address2" value="{{$employee->address1}}">
+            <input id="address2" type="text" class="form-control" name="address2" value="{{$employee->address2}}">
         </div>
   <button type="submit" class="btn btn-primary">更新</button>
   <a class="btn btn-secondary" href="{{route('index')}}">戻る</a>

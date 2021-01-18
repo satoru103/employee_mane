@@ -87,7 +87,7 @@ class EmployeeController extends Controller
         $employee->Department =$request->Department;
         $employee->email =$request->email;
         $employee->save();
-
+        
         $request->session()->flash('err_msg', 'データを更新しました');
         return redirect()->route('index');
     }
