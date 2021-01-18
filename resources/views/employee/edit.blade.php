@@ -48,6 +48,10 @@
             <label for="address2">マンション名</label>
             <input id="address2" type="text" class="form-control" name="address2" value="{{$employee->address2}}">
         </div>
+        <div class="form-group">
+            <label for="profile_img">プロフィール画像</label>
+            <input id="profile_img" type="file" class="form-control" name="profile_img" value="{{$employee->profile_img}}" accept="/image/pmg,/image/jpeg">
+        </div>
   <button type="submit" class="btn btn-primary">更新</button>
   <a class="btn btn-secondary" href="{{route('index')}}">戻る</a>
 </form>

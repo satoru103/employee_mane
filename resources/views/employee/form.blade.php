@@ -46,7 +46,11 @@
             <label for="address2">マンション名</label>
             <input id="address2" type="text" class="form-control" name="address2">
         </div>
-  <button type="submit" class="btn btn-primary">追加</button>
+        <div class="form-group">
+            <label for="profile_img">プロフィール画像</label>
+            <input id="profile_img" class="form-control-file" type="file" name="profile_img" accept="image/pmg,image/jpeg">
+        </div>
+  <button type="submit" class="mb-5 btn btn-primary">追加</button>
 </form>
     <a href="{{route('index')}}"><button type="submit" class="btn btn-primary">戻る</button></a>
 </div>

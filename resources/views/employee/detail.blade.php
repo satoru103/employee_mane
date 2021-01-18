@@ -6,7 +6,11 @@
     <div class="mt-5 card">
     <h3 class="card-header">Featured</h3>
         <div class="card-body" style="margin: 0 auto">
-            <img src="{{asset('/images/profile_blank.png')}}" style="width: 300px;height:300px">
+            @if($employee->profile_img)
+                <img src="{{asset('storage/user_images'.$employee->profile_img)}}" style="width: 300px;height:300px">
+            @else
+                <img src="{{asset('images/profile_blank.png')}}" style="width: 300px;height:300px">
+            @endif
         </div>
         <div class="card-footer">
         <table>

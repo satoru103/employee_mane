@@ -19,6 +19,7 @@ class Employee extends Model
         'postcode',
         'pref',
         'address1',
-        'address2'
+        'address2',
+        'profile_img'
     ];
 }

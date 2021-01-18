@@ -41,6 +41,7 @@ class EmployeeController extends Controller
             'pref' =>$request->pref,
             'address1' =>$request->address1,
             'address2' =>$request->address2,
+            'profile_img'=>$request->profile_img,
         ]);
         
         $request->session()->flash('err_msg', 'データを登録しました');
@@ -86,6 +87,7 @@ class EmployeeController extends Controller
         $employee->name =$request->name;
         $employee->Department =$request->Department;
         $employee->email =$request->email;
+        $employee->profile_img =$request->profile_img;
         $employee->save();
         
         $request->session()->flash('err_msg', 'データを更新しました');
